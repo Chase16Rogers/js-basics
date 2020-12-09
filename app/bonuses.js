@@ -2,15 +2,19 @@
 let str = "team number 2"
 
 function camelCase(str) {
-  let splitted = str.split(" ")
+  let splitArr
+  let int = 0
+  splitArr = str.split(" ")
+  if (splitArr.length == 1) { return str }
 
-  for (let i = 0; i < splitted.length; i++) {
-    let capital = splitted.splice(i, 1)
-      .capital.char(0).toUppercase()
+  while (int < splitArr.length) {
+    int++
+    let capping = splitArr[int].charAt(0).toUpperCase() + splitArr[int].slice(1)
+    splitArr.splice(int, 1, capping)
+
+    let joinedArr = splitArr.join("")
+    console.log(joinedArr)
+    return joinedArr
   }
 
-  console.log("Array: " + splitted)
-  let joined = splitted.join("-")
-  console.log(joined)
-  return joined
 }
